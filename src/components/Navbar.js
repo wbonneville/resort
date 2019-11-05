@@ -4,9 +4,11 @@ import { FaAlignRight } from 'react-icons/fa';
 import { Link } from 'react-router-dom';
 
 export default class NavBar extends Component {
+  // navbar is set to false
   state = {
     isOpen: false,
   };
+  // toggle handler sets the state to the opposite of the state of isOpen
   handleToggle = () => {
     this.setState({
       isOpen: !this.state.isOpen,
@@ -23,11 +25,13 @@ export default class NavBar extends Component {
             <button
               type="button"
               className="nav-btn"
+              // toggle onOpen
               onClick={this.handleToggle}
             >
               <FaAlignRight className="nav-icon" />
             </button>
           </div>
+          {/* if the state is open, show the links */}
           <ul
             className={this.state.isOpen ? 'nav-links show-nav' : 'nav-links'}
           >

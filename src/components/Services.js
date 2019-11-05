@@ -3,6 +3,8 @@ import Title from './Title';
 import { FaCocktail, FaHiking, FaShuttleVan, FaBeer } from 'react-icons/fa';
 
 export default class Services extends Component {
+  // set state = to services array
+  // services array populated with objects
   state = {
     services: [
       {
@@ -36,9 +38,12 @@ export default class Services extends Component {
       <section className="services">
         <Title title="services"></Title>
         <div className=" services-center">
+          {/* map through services and assign each object as item */}
           {this.state.services.map((item, index) => {
             return (
+              // each item has an index
               <article key={index} className="service">
+                {/* accessing each item */}
                 <span>{item.icon}</span>
                 <h6>{item.title}</h6>
                 <p>{item.info}</p>
