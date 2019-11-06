@@ -1,6 +1,7 @@
 import React from 'react';
 import loadingGif from '../images/gif/loading-arrow.gif';
 
+// loading gif component
 export default function Loading() {
   return (
     <div className="loading">
