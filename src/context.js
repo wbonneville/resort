@@ -1,11 +1,13 @@
 import React, { Component } from 'react';
-
+import items from './data';
 const RoomContext = React.createContext();
 
 class RoomProvider extends Component {
   state = {
-    greeting: 'yyy',
-    good: 'asdasd',
+    rooms: [],
+    sortedRooms: [],
+    featuredRooms: [],
+    loading: true,
   };
   render() {
     return (
