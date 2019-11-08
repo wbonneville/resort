@@ -4,6 +4,7 @@ import defaultImg from '../images/room-1.jpeg';
 import PropTypes from 'prop-types';
 
 export default function Room({ room }) {
+  // destructuring to get props from room
   const { name, slug, images, price } = room;
   return (
     <article className="room">
