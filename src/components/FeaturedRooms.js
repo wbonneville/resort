@@ -12,6 +12,7 @@ export default class FeaturedRooms extends Component {
     // loop through the rooms array and extract each room
     // assign each room a key
     rooms = rooms.map(room => {
+      // passing a room prop and assigning everything for each and every room
       return <Room key={room.id} room={room} />;
     });
     return (
