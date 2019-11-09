@@ -14,9 +14,12 @@ export default class SingleRoom extends Component {
       defaultBcg,
     };
   }
+  // set static context
   static contextType = RoomContext;
   render() {
+    // get room
     const { getRoom } = this.context;
+
     const room = getRoom(this.state.slug);
     if (!room) {
       return (
@@ -28,6 +31,8 @@ export default class SingleRoom extends Component {
         </div>
       );
     }
+
+    // destructure to get props out of room
     const {
       name,
       description,
@@ -40,6 +45,7 @@ export default class SingleRoom extends Component {
       images,
     } = room;
     return (
+      // use images[0] if available, or use default img
       <StyledHero img={images[0] || this.state.defaultBcg}>
         <Banner title={`${name} room`}>
           <Link to="/rooms" className="btn-primary">

@@ -51,6 +51,8 @@ class RoomProvider extends Component {
 
   render() {
     return (
+      // destructure to get all of state
+
       <RoomContext.Provider value={{ ...this.state, getRoom: this.getRoom }}>
         {this.props.children}
       </RoomContext.Provider>
