@@ -45,6 +45,7 @@ class RoomProvider extends Component {
   // get matching slug for room
   getRoom = slug => {
     let tempRooms = [...this.state.rooms];
+    // selected rooms slug is found in the array of rooms
     const room = tempRooms.find(room => room.slug === slug);
     return room;
   };
