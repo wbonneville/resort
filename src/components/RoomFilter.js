@@ -1,5 +1,5 @@
 import React from 'react';
 
 export default function RoomFilter() {
-  return <div></div>;
+  return <div>hi from room filter</div>;
 }
