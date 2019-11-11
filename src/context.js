@@ -66,12 +66,13 @@ const RoomConsumer = RoomContext.Consumer;
 // higher order component takes RoomContainer (Component) as an arguement
 export function withRoomConsumer(Component) {
   // pass props into the the component that is returned
-  //
   return function ConsumerWrapper(props) {
-    <RoomConsumer>
-      {/* set value = to context. context is technically arbitrary prop name */}
-      {value => <Component {...props} context={value} />}
-    </RoomConsumer>;
+    return (
+      <RoomConsumer>
+        {/* set value = to context. context is technically arbitrary prop name */}
+        {value => <Component {...props} context={value} />}
+      </RoomConsumer>
+    );
   };
 }
 

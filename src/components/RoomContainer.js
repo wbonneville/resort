@@ -14,7 +14,9 @@ function RoomContainer({ context }) {
 
   return (
     <>
+      {/* set RoomFilter rooms prop = to rooms */}
       <RoomFilter rooms={rooms} />
+      {/* set RoomList rooms prop = to sortedRooms */}
       <RoomList rooms={sortedRooms} />
     </>
   );
