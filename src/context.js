@@ -66,14 +66,46 @@ class RoomProvider extends Component {
   };
 
   handleChange = event => {
-    const type = event.target.type;
+    // select an option
+    const target = event.target;
+    // is a paramater checked?
+    const value = event.type === 'checkbox' ? target.checked : target.value;
+    // name = option selected
     const name = event.target.name;
-    const value = event.target.value;
+    // set state..
+    // callback function
+    this.setState(
+      {
+        [name]: value,
+      },
+      this.filterRooms,
+    );
   };
 
+  // filter rooms
   filterRooms = () => {
-    console.log();
+    let {
+      rooms,
+      type,
+      capacity,
+      price,
+      minSize,
+      maxSize,
+      breakfast,
+      pets,
+    } = this.state;
+
+    // if type is not equal to all..
+    // ..only display rooms equal to current type
+    let tempRooms = [...rooms];
+    if (type !== 'all') {
+      tempRooms = tempRooms.filter(room => room.type === type);
+    }
+    this.setState({
+      sortedRooms: tempRooms,
+    });
   };
+
   render() {
     return (
       // destructure to get all of state
