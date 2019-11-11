@@ -3,7 +3,9 @@ import { Link } from 'react-router-dom';
 import defaultImg from '../images/room-1.jpeg';
 import PropTypes from 'prop-types';
 
-// get room prop
+// CHILD
+
+// get room prop from featured rooms
 export default function Room({ room }) {
   // destructuring to get props from room
   const { name, slug, images, price } = room;
