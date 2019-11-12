@@ -27,9 +27,11 @@ class RoomProvider extends Component {
   componentDidMount() {
     // this.getData
     let rooms = this.formatData(items);
+    // featured rooms array set to rooms where feautured === true
     let featuredRooms = rooms.filter(room => room.featured === true);
-
+    // max price takes highest room price
     let maxPrice = Math.max(...rooms.map(item => item.price));
+    // max size takes highest size
     let maxSize = Math.max(...rooms.map(item => item.size));
     this.setState({
       rooms,
@@ -97,10 +99,14 @@ class RoomProvider extends Component {
 
     // if type is not equal to all..
     // ..only display rooms equal to current type
+
+    // temp rooms = rooms array
     let tempRooms = [...rooms];
+    // if the room type is "not" set to "all", display the specific rooms with the selected type
     if (type !== 'all') {
       tempRooms = tempRooms.filter(room => room.type === type);
     }
+    // the state of sorted rooms is now equal to tempRooms
     this.setState({
       sortedRooms: tempRooms,
     });
