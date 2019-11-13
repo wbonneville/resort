@@ -74,6 +74,23 @@ export default function RoomFilter({ rooms }) {
           </select>
         </div>
         {/* end guests */}
+        {/* room price */}
+        <div className="form-group">
+          room price ${price}
+          <label htmlFor="price">
+            <input
+              type="range"
+              name="price"
+              min={minPrice}
+              max={maxPrice}
+              id="price"
+              value={price}
+              onChange={handleChange}
+              className="form-control"
+            />
+          </label>
+        </div>
+        {/* end of room price */}
       </form>
     </section>
   );
