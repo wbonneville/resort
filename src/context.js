@@ -118,6 +118,11 @@ class RoomProvider extends Component {
     }
 
     // the state of sorted rooms is now equal to tempRooms
+
+    // filter by price
+
+    tempRooms = tempRooms.filter(room => room.price <= price);
+
     this.setState({
       sortedRooms: tempRooms
     });
