@@ -1,5 +1,5 @@
-import React, { Component } from 'react';
-import items from './data';
+import React, { Component } from "react";
+import items from "./data";
 const RoomContext = React.createContext();
 
 class RoomProvider extends Component {
@@ -12,7 +12,7 @@ class RoomProvider extends Component {
     sortedRooms: [],
     featuredRooms: [],
     loading: true,
-    type: 'all',
+    type: "all",
     capacity: 1,
     price: 0,
     minPrice: 0,
@@ -20,7 +20,7 @@ class RoomProvider extends Component {
     minSize: 0,
     maxSize: 0,
     breakfast: false,
-    pets: false,
+    pets: false
   };
   // getData
 
@@ -40,7 +40,7 @@ class RoomProvider extends Component {
       loading: false,
       price: maxPrice,
       maxPrice,
-      maxSize,
+      maxSize
     });
   }
 
@@ -71,16 +71,16 @@ class RoomProvider extends Component {
     // select an option
     const target = event.target;
     // is a paramater checked?
-    const value = event.type === 'checkbox' ? target.checked : target.value;
+    const value = event.type === "checkbox" ? target.checked : target.value;
     // name = option selected
     const name = event.target.name;
     // set state..
     // callback function
     this.setState(
       {
-        [name]: value,
+        [name]: value
       },
-      this.filterRooms,
+      this.filterRooms
     );
   };
 
@@ -94,7 +94,7 @@ class RoomProvider extends Component {
       minSize,
       maxSize,
       breakfast,
-      pets,
+      pets
     } = this.state;
 
     // if type is not equal to all..
@@ -102,13 +102,24 @@ class RoomProvider extends Component {
 
     // temp rooms = rooms array
     let tempRooms = [...rooms];
+
+    // transform values
+
+    capacity = parseInt(capacity);
+
+    // filter by type
     // if the room type is "not" set to "all", display the specific rooms with the selected type
-    if (type !== 'all') {
+    if (type !== "all") {
       tempRooms = tempRooms.filter(room => room.type === type);
     }
+
+    if (capacity !== 1) {
+      tempRooms: tempRooms.filter(room => room.capacity >= capacity);
+    }
+
     // the state of sorted rooms is now equal to tempRooms
     this.setState({
-      sortedRooms: tempRooms,
+      sortedRooms: tempRooms
     });
   };
 
@@ -120,7 +131,7 @@ class RoomProvider extends Component {
         value={{
           ...this.state,
           getRoom: this.getRoom,
-          handleChange: this.handleChange,
+          handleChange: this.handleChange
         }}
       >
         {this.props.children}
