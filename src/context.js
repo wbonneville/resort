@@ -71,7 +71,7 @@ class RoomProvider extends Component {
     // select an option
     const target = event.target;
     // is a paramater checked?
-    const value = event.type === "checkbox" ? target.checked : target.value;
+    const value = target.type === "checkbox" ? target.checked : target.value;
     // name = option selected
     const name = event.target.name;
     // set state..
@@ -120,8 +120,22 @@ class RoomProvider extends Component {
     // the state of sorted rooms is now equal to tempRooms
 
     // filter by price
-
     tempRooms = tempRooms.filter(room => room.price <= price);
+
+    // return room size bigger then minSize and room size smaller than maxSize
+    tempRooms = tempRooms.filter(
+      room => room.size >= minSize && room.size <= maxSize
+    );
+
+    // if breakfast is true in the specific room, filter it in
+    if (breakfast === true) {
+      tempRooms = tempRooms.filter(room => room.breakfast === true);
+    }
+
+    // if pets is true in the specific room, filter it in
+    if (pets === true) {
+      tempRooms = tempRooms.filter(room => room.pets === true);
+    }
 
     this.setState({
       sortedRooms: tempRooms
