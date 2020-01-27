@@ -154,7 +154,7 @@ class RoomProvider extends Component {
 
   render() {
     return (
-      // destructure to get all of state
+      // spread operator to get all of state
 
       <RoomContext.Provider
         value={{
